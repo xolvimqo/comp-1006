@@ -21,9 +21,11 @@
 						</ul>
 					</li>
 					<li><a href="<?= base_path ?>/contact.php">Contact</a></li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?= base_path ?>/users/show.php?id=">My Profile</a>
-          </li>
+          <?php if (isset($_SESSION['user'])): ?>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= base_path ?>/users/show.php?id=<?= $_SESSION['user']['id'] ?>">My Profile</a>
+            </li>
+          <?php endif ?>
           <li class="has-dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="buttom" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Users</a>
             <ul class="dropdown">

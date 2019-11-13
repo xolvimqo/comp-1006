@@ -1,14 +1,16 @@
 <?php
 
   // Step 1: Start the session
-
+  if (session_status() === PHP_SESSION_NONE) session_start();
 
   // Step 2: Assign the session variables
-
+  $flash_data = $_SESSION['flash'] ?? null;
+  $form_data = $_SESSION['form_data'] ?? null;
 
 
   // Step 3: Clear the session variables so it's blank the next time
-
+  unset($_SESSION['flash']);
+  unset($_SESSION['form_data']);
 
 ?>
 
@@ -62,9 +64,6 @@
   <body>
     <?php include(ROOT . '/partials/_main-nav.php') ?>
 
-    <!-- Step 4: Include the _flash.php notification component -->
-    <?php include(ROOT . '/partials/_flash.php') ?>
-
     <header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);">
   		<div class="overlay"></div>
   		<div class="gtco-container">
@@ -75,11 +74,19 @@
   							<h1>Greatness Free Template</h1>
   							<h2>Free html5 templates Made by <a href="http://FreeHTML5.co/" target="_blank">FreeHTML5.co</a></h2>
   							<p>
-  								<a href="#" class="btn btn-primary btn-lg">Get Started</a>
-  								<a href="#" class="btn btn-white btn-outline btn-lg">Download</a></p>
+							  <?php if (!AUTH || !ADMIN): ?>
+  								<a href="<?= base_path ?>/sessions/login.php" class="btn btn-primary btn-lg">Login</a>
+  								<a href="<?= base_path ?>/users/new.php" class="btn btn-white btn-outline btn-lg">Sign up</a>
+							  <?php else: ?>
+							    <a href="<?= base_path ?>/sessions/logout.php" class="btn btn-primary btn-lg">Log out</a>
+							  <?php endif ?>
+							</p>
   						</div>
   					</div>
   				</div>
   			</div>
   		</div>
   	</header>
+
+    <!-- Step 4: Include the _flash.php notification component -->
+    <?php include(ROOT . '/partials/_flash.php') ?>

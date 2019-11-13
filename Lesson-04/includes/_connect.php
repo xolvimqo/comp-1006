@@ -1,4 +1,6 @@
 <?php
+
+  function connect () { // use function can avoid overwrite variables accidently
     /*
         A simple reusable connection script
         https://www.php.net/manual/en/pdo.construct.php
@@ -21,3 +23,6 @@
       echo 'Connection failed: ' . $e->getMessage();
       exit; // can also use die();
     }
+
+    return $conn;
+  } // closing function

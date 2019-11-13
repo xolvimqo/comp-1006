@@ -1,12 +1,13 @@
 <?php
   // Step 1: Get the user by the ID
   include_once("../includes/_connect.php");
+  $conn = connect();
   // sql string
   // prepare the sql and return the prepared statement
 
   // execute the statement
   // fetch the user record returned
-  // localhost/users/show.php?id=1
+  // localhost/comp-1006/Lesson-04/users/show.php?id=1
   $user_id = $_GET['id'];
   // echo $user_id
   $sql = "SELECT * FROM users WHERE id = :id LIMIT 1";

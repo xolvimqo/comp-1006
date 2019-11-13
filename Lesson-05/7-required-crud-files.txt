@@ -1,0 +1,7 @@
+index - we can see all users (resource)
+show  - we can view one user (resource)
+new   - is a view that allows us to create a resource
+create- takes the details and write them to the DB
+edit  - is a view that allows us to modify a resource
+update- takes the modified details and writes them to the db
+destroy- which will remove a resource from the db

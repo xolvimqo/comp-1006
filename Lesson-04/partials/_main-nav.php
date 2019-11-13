@@ -38,12 +38,12 @@
     <ul class="navbar-nav ml-auto">
 
       <li class="nav-item">
-        <a href="/sessions/login.php" class="nav-link">
+        <a href="<?= base_path ?>/sessions/login.php" class="nav-link">
           <i class="fa fa-unlock"></i>&nbsp;Login
         </a>
       </li>
       <li class="nav-item">
-        <a href="/users/new.php" class="nav-link">
+        <a href="<?= base_path ?>/users/new.php" class="nav-link">
           <i class="fa fa-user"></i>&nbsp;Register
         </a>
       </li>
@@ -51,7 +51,7 @@
 
 
       <li class="nav-item">
-        <a href="/sessions/logout.php" class="nav-link">
+        <a href="<?= base_path ?>/sessions/logout.php" class="nav-link">
           <i class="fa fa-lock"></i>&nbsp;Logout
         </a>
       </li>

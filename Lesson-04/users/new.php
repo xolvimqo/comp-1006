@@ -1,12 +1,13 @@
 <?php include('../_config.php') ?>
 
 <?php
+  if (session_status() === PHP_SESSION_NONE) session_start();
   $_title = "Create a New User - Admin";
   $_active = "users";
 ?>
 
 <?php include(ROOT . '/partials/_header.php') ?>
-
+<!-- <?php var_dump($_SESSION) ?> -->
 <div class="container">
   <header class="mt-5">
     <h1>Register a New User</h1>

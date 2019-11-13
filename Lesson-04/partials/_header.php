@@ -1,14 +1,17 @@
 <?php
 
+  include_once(dirname(__DIR__) . "/_config.php");
   // Step 1: Start the session
-
+  if (session_status() === PHP_SESSION_NONE) session_start();
 
   // Step 2: Assign the session variables
-
+  $flash_data = $_SESSION['flash'] ?? null;
+  $form_data = $_SESSION['form_data'] ?? null;
 
 
   // Step 3: Clear the session variables so it's blank the next time
-
+  unset($_SESSION['flash']);
+  unset($_SESSION['form_data']);
 
 ?>
 

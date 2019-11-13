@@ -11,6 +11,7 @@
   // Step 1: Get the users
   // Include the connect script
   include_once(ROOT . '/includes/_connect.php');
+  $conn = connect();
   $sql = "SELECT * FROM users";
   $stmt = $conn->prepare($sql);
   $stmt->execute();
