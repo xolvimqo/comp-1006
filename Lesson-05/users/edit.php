@@ -10,7 +10,7 @@
     $user = $stmt->fetch();
 
     if (session_status() === PHP_SESSION_NONE) session_start();
-    $_SESSION['form_data'] = $user;
+    $_SESSION['form_data'] = $_SESSION['form_data'] ?? $user;
 ?>
 
 <?php

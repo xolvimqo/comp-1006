@@ -5,6 +5,9 @@
 <!-- Step 1: Add the action and HTTP method to the form attributes -->
 <?php $_action = $_action ?? base_path . "/users/create.php" ?>
 <form action="<?= $_action ?>" method="post">
+  <?php if (isset($_action)): ?>
+    <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
+  <?php endif ?>
   <div class="row">
     <div class="form-group col">
       <label for="first_name">First Name:</label>

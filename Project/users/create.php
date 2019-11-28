@@ -79,6 +79,7 @@
   $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
   $stmt->execute();
   $exists = $stmt->fetch();
+  $stmt->closeCursor();
 
   // Step 9: Check if the user exists and call an error if it does
   if ($exists) $errors[] = "This user already exists.";

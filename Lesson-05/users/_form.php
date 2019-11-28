@@ -1,10 +1,12 @@
 <!-- Step 1: Add the action and HTTP method to the form attributes -->
-<?php include_once('../_config.php') ?>
+<?php include_once(dirname(__DIR__) . '/_config.php') ?>
 <?php if (!isset($_action) && AUTH && !ADMIN) not_admin_redirect(base_path) ?>
 <?php $form_data = $form_data ?? null ?>
 
-<?php $_action = $_action ?? base_path . "/users/create.php" ?>
-<form action="<?= $_action ?>" method="post">
+<form action="<?= $_action ?? base_path . "/users/create.php" ?>" method="post">
+  <?php if (isset($_GET['id'])): ?>
+    <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
+  <?php endif ?>
   <div class="row">
     <div class="form-group col">
       <label for="first_name">First Name:</label>

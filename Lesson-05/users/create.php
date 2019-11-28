@@ -90,7 +90,7 @@
 
 
   // Step 11: Attempt to write the user to the database
-  $sql = "INSERT INTO users (first_name, last_name, email, avatar, password) VALUES (
+  $sql = "INSERT INTO users (first_name, last_name, email, avatar, password) VALUE (
     :first_name,
     :last_name,
     :email,

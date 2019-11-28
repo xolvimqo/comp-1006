@@ -64,6 +64,18 @@
           </tr>
         </tbody>
       </table>
+
+      <p>
+        <a href="<?= base_path ?>/users/edit.php?id=<?= $user['id'] ?>">
+          <i class="fa fa-pencil"></i>
+          edit
+        </a>
+        |
+        <a href="<?= base_path ?>/users/destroy.php?id=<?= $user['id'] ?>" onclick="return confirm('Are you sure you want to delete?')">
+          <i class="fa fa-trash"></i>
+          delete
+        </a>
+      </p>
     </div>
   </div>
 </div>

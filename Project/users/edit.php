@@ -4,22 +4,14 @@
   // Step 1: Get the user by the ID
   include_once(ROOT . "/includes/_connect.php");
   $conn = connect();
-  // sql string
-  // prepare the sql and return the prepared statement
-
-  // execute the statement
-  // fetch the user record returned
-  // localhost/users/show.php?id=1
-//   $user_id = $_GET['id'];
-  // echo $user_id
   $sql = "SELECT * FROM users WHERE id = :id";
   $stmt = $conn->prepare($sql);
-  $stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
+  $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
   $stmt->execute();
   $user = $stmt->fetch();
 
   if (session_status() == PHP_SESSION_NONE) session_start();
-  $_SESSION['form_data'] = $user;
+  $_SESSION['form_data'] = $_SESSION['form_data'] ?? $user;
 ?>
 
 <?php
@@ -36,41 +28,18 @@
       User - <?= $user['first_name'] ?> <?= $user['last_name'] ?>
     </h1>
     <hr>
-
-    <!-- Only show the back link if the user is an administrator -->
-    <?php // Step 2: Check if the user is an admin role ?>
       <small>
         <a href="./"><i class="fa fa-chevron-left"></i>&nbsp;Back to users...</a>
       </small>
-    <?php // Step 3: end if ?>
   </header>
 
   <div class="row">
-    <div class="col-4">
-      <img src="<?= $user['avatar'] ?>">
+    <div class="col-sm-4">
+      <img id="avatar" src="" alt="avatar" class="invisible border">
     </div>
 
-    <div class="col-4">
-      <table class="table table-striped">
-        <tbody>
-          <tr>
-            <th>Name:</th>
-            <td><?= $user['first_name'] ?> <?= $user['last_name'] ?></td>
-          </tr>
-          <tr>
-            <th>Email:</th>
-            <td><?= $user['email'] ?></td>
-          </tr>
-          <tr>
-            <th>Created On:</th>
-            <td>
-              <?= date("d/m/Y", strtotime($user['created_at'])) ?>
-              <br>
-              <?= date("g:i a", strtotime($user['created_at'])) ?>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="col-sm-8 border">
+      <?php include(ROOT . "/users/_form.php") ?>
     </div>
   </div>
 </div>

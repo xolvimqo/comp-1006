@@ -68,6 +68,13 @@
           </tr>
         </tbody>
       </table>
+
+      <p>
+        <a href="<?= base_path ?>/users/edit.php?id=<?= $user['id'] ?>">
+          <i class="icon-pencil"></i>
+          edit
+        </a>
+      </p>
     </div>
   </div>
 </div>
