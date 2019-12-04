@@ -8,7 +8,7 @@
 
     // Our connection details
     $host = "localhost";
-    $dbname = "comp_1006";
+    $dbname = "php_project";
     $username = "root";
     $password = "";
 

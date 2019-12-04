@@ -17,6 +17,9 @@
         <a class="nav-link" href="<?= base_path ?>/about.php">About Me</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="<?= base_path ?>/posts">Blog</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="<?= base_path ?>/contact.php">Contact Me</a>
       </li>
       <?php if (AUTH): ?>
